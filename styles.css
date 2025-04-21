@@ -1,0 +1,45 @@
+body {
+  background: white;
+  margin: 0;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: repeat(100, 1fr);
+}
+
+.cell {
+  width: 10px;
+  height: 10px;
+  outline: 1px solid rgb(213, 214, 215);
+}
+
+#palette {
+  position: absolute;
+  display: flex;
+  width: 170px;
+  padding: 5px;
+  gap: 5px;
+  background: white;
+  border: 2px solid rgb(148, 154, 160);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  flex-wrap: wrap;
+}
+
+#palette.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.color {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
