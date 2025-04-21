@@ -29,10 +29,11 @@ for (let x = 0; x < 100 * rows; x++) {
     if (e.button === 2) {
       return;
     }
-    const currentBg = cell.style.backgroundColor;
+
+    const currentBackground = cell.style.backgroundColor;
     const selectedRgb = hexToRgb(selectedColor);
 
-    if (currentBg === selectedRgb) {
+    if (currentBackground === selectedRgb && currentBackground !== '') {
       cell.style.backgroundColor = '';
     } else {
       cell.style.backgroundColor = selectedColor;
@@ -82,12 +83,12 @@ document.addEventListener('contextmenu', (e) => {
   colorPickerModal.classList.add('visible');
 });
 
-// colorPickerModal.addEventListener('mouseleave', () => {
-//   colorPickerModal.classList.remove('visible');
-//   setTimeout(() => {
-//     colorPickerModal.classList.add('hidden');
-//   }, 300);
-// });
+colorPickerModal.addEventListener('mouseleave', () => {
+  colorPickerModal.classList.remove('visible');
+  setTimeout(() => {
+    colorPickerModal.classList.add('hidden');
+  }, 300);
+});
 
 colorPickerModal.addEventListener('mousedown', (e) => {
   e.stopPropagation();
